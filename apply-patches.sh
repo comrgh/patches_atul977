@@ -10,9 +10,6 @@ sleep 1.0;
 for path_personal in $(cd $personal; echo *); do
 	tree="$(tr _ / <<<$path_personal | sed -e 's;platform/;;g')"
 	printf "\n| $path_personal ###\n";
-	[ "$tree" == build ] && tree=build/make
-    [ "$tree" == vendor/hardware/overlay ] && tree=vendor/hardware_overlay
-    [ "$tree" == treble/app ] && tree=treble_app
 	pushd $tree
 
 	for patch in $personal/$path_personal/*.patch; do
